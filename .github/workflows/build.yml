@@ -23,6 +23,7 @@ jobs:
           pip3 install -U websockets
           python3 websocket/tests/echo-server.py &
           echo "ECHO SERVER STARTED"
+          ps
       - name: Build websocket-client & run tests
         run: |
           pip3 install -U pip setuptools wheel readme_renderer twine pytest python-socks
