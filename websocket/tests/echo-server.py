@@ -18,6 +18,7 @@ async def main():
     async with websockets.serve(echo, "localhost", 8765):
         await asyncio.Future()  # run forever
 
+print("Before asyncio")
 loop = asyncio.get_event_loop()
 asyncio.ensure_future(main())
 print(">>>>>>>>>>>>>>>> Running forever! <<<<<<<<<<<<<<<<<<")
