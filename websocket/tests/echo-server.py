@@ -7,11 +7,14 @@ import websockets
 
 
 async def echo(websocket, path):
+    print(">>>>>>>>>>>>>>>>> In echo async! <<<<<<<<<<<<<<<<<")
     async for message in websocket:
+        print(">>>>>>>>>>> ECHO <<<<<<<<<<<<<<<")
         await websocket.send(message)
 
 
 async def main():
+    print(">>>>>>>>>>>>>>>> in async main <<<<<<<<<<<<<<<<<<<")
     async with websockets.serve(echo, "localhost", 8765):
         await asyncio.Future()  # run forever
 
