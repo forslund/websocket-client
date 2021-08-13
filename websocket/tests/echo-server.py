@@ -20,4 +20,6 @@ async def main():
 
 loop = asyncio.get_event_loop()
 asyncio.ensure_future(main())
+print(">>>>>>>>>>>>>>>> Running forever! <<<<<<<<<<<<<<<<<<")
 loop.run_forever()
+print("DONE!")
