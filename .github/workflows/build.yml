@@ -24,6 +24,8 @@ jobs:
           python3 websocket/tests/echo-server.py > server.out &
           echo "ECHO SERVER STARTED"
           sleep 5
+          sync
+          ls
           cat server.out
       - name: Build websocket-client & run tests
         run: |
