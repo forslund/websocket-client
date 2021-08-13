@@ -21,14 +21,13 @@ jobs:
       - name: Run local websockets echo server on port 8765 (code is for Python 3.7+)
         run: |
           pip3 install -U websockets
-          python3 websocket/tests/echo-server.py > server.out &
+          python3 websocket/tests/echo-server.py &
           echo "ECHO SERVER STARTED"
       - name: Build websocket-client & run tests
         run: |
           pip3 install -U pip setuptools wheel readme_renderer twine pytest python-socks
           python3 -c "import setuptools; print('Setup tools version'); print(setuptools.__version__)"
           pytest websocket/tests -v -rP | true
-          cat server.out
           python3 setup.py sdist
           twine check dist/*
         env:
